@@ -1,5 +1,3 @@
-/* Assignment 2 - Control Tower */
-/* Class name - must be "Assignment2" in order to run */
 import java.util.Scanner;
 import assignment2.Airplane;
 
