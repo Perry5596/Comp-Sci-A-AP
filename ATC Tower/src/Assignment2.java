@@ -1,12 +1,11 @@
 import java.util.Scanner;
 import assignment2.Airplane;
 
-public class Assignment2
+public class Main
 {
 
     public static void main(String[] args)
     {
-        /* Write your code here */
         Scanner scan = new Scanner(System.in);
         String a;
 
