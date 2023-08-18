@@ -1,43 +1,43 @@
+/* Assignment 1 - Calculating Grades */
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
-class GradeCalculator  {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+class Assignment1
+{
+    private static final DecimalFormat df = new DecimalFormat("0.00");
 
-        System.out.print("Course Name: ");
-        String courseName = scanner.nextLine();
+    public static void main(String[] args)
+    {
 
-        System.out.print("Time in minutes spent in week: ");
-        int time = scanner.nextInt();
+        /* Write your code here */
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter the course name.");
+        String courseName = input.nextLine();
+        System.out.println("Please enter the average time spent in a week for this course in minutes.");
+        int minutes = input.nextInt();
+        System.out.println("Please enter the homework grades for this course.");
+        double h1 = input.nextInt();
+        double h2 = input.nextInt();
+        double h3 = input.nextInt();
+        double h4 = input.nextInt();
+        System.out.println("Please enter the quiz grades for this course.");
+        double q1 = input.nextFloat();
+        double q2 = input.nextFloat();
+        System.out.println("Please enter the final exam grade for this course.");
+        double f = input.nextDouble();
 
-        System.out.println("Enter all homework grades below: ");
-        float homeworkOne = scanner.nextFloat();
-        float homeworkTwo = scanner.nextFloat();
-        float homeworkThree = scanner.nextFloat();
-        float homeworkFour = scanner.nextFloat();
+        int hours = minutes/60;
+        minutes %= 60;
 
-        System.out.println("Enter all quiz grades below: ");
-        float quizOne = scanner.nextFloat();
-        float quizTwo = scanner.nextFloat();
+        double avgH = (h1+h2+h3+h4) / 4;
+        double avgQ = (q1+q2) / 2;
+        double avgGrade = Math.round((avgH * 0.35) + (avgQ * 0.15) + (f * 0.5));
 
-        System.out.print("Enter your final exam grade: ");
-        float finalExam = scanner.nextFloat();
-
-
-        int hours = time / 60;
-        int minutes = time % 60;
-
-        float homeworkAverage = (homeworkOne + homeworkTwo + homeworkThree + homeworkFour) / 4;
-        float quizAverage = (quizOne + quizTwo) / 2;
-
-        float finalAverage = (float)(homeworkAverage * 0.35) + (float)(quizAverage * 0.15) + (float)(finalExam * 0.5);
-
-
-        System.out.println("Course name: " + courseName);
-        System.out.println("Time spent: " + hours + "h " + minutes + "m");
-        System.out.println("Average homework grade: " + homeworkAverage);
-        System.out.println("Average quiz grade: " + quizAverage);
-        System.out.println("Final exam grade: " + finalExam);
-        System.out.println("Course average grade: " + finalAverage);
+        System.out.println("Course name: "+courseName);
+        System.out.println("Weekly time spent: "+hours+"h"+minutes);
+        System.out.println("Average homework grade: "+df.format(avgH));
+        System.out.println("Average quiz grade: "+df.format(avgQ));
+        System.out.println("Final exam grade: "+df.format(f));
+        System.out.println("Overall grade: "+avgGrade);
     }
 }
